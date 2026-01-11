@@ -1,0 +1,259 @@
+.patient-registration {
+  width: 100%;
+}
+
+.registration-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.registration-left {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.registration-left h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.registration-left > p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.form-section {
+  margin-bottom: 2rem;
+}
+
+.form-section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.section-subtitle {
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.tests-list {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.test-category {
+  margin-bottom: 2rem;
+}
+
+.test-category h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #667eea;
+  font-weight: 600;
+}
+
+.test-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background: #f9f9f9;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.test-item:hover {
+  background: #f0f0f0;
+}
+
+.test-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.test-name {
+  flex: 1;
+  color: #333;
+}
+
+.test-price {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.registration-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.summary-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.summary-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.selected-tests {
+  margin-bottom: 1.5rem;
+}
+
+.selected-tests > p {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.tests-list-summary {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+
+.test-summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.9rem;
+}
+
+.test-summary-item:last-child {
+  border-bottom: none;
+}
+
+.no-tests {
+  color: #666;
+  font-style: italic;
+}
+
+.total-amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #667eea;
+  color: white;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.amount-value {
+  font-size: 1.5rem;
+}
+
+.patient-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.patient-details p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.generate-btn,
+.clear-btn {
+  padding: 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.generate-btn {
+  background: #667eea;
+  color: white;
+}
+
+.generate-btn:hover:not(:disabled) {
+  background: #5568d3;
+}
+
+.generate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.clear-btn {
+  background: white;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.clear-btn:hover {
+  background: #f5f5f5;
+}
+
+.info-note {
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+@media (max-width: 1200px) {
+  .registration-container {
+    grid-template-columns: 1fr;
+  }
+}
