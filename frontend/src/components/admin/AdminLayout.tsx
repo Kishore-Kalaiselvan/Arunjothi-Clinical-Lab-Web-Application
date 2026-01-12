@@ -27,13 +27,12 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
               <path d="M12 2L2 7l10 5 10-5-10-5z" />
               <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
-            <span>LabCare Admin</span>
+            <span>Arunjothi Clinical Lab - Admin</span>
           </div>
         </div>
         <div className="header-right">
           <div className="user-info">
             <div className="user-name">{user?.username || 'Admin User'}</div>
-            <div className="user-email">{user?.email || 'admin@labcare.com'}</div>
           </div>
           <button onClick={handleLogout} className="logout-button">
             → Logout

@@ -7,9 +7,9 @@ export const seedDatabase = async () => {
     // Create default users
     const adminExists = await User.findOne({ where: { role: UserRole.ADMIN } });
     if (!adminExists) {
-      const adminPassword = await bcrypt.hash('admin123', 10);
+      const adminPassword = await bcrypt.hash('Arunachalam!', 10);
       await User.create({
-        username: 'admin',
+        username: 'Kalaiselvan',
         email: 'admin@labcare.com',
         password: adminPassword,
         role: UserRole.ADMIN

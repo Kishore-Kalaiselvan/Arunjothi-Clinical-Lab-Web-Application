@@ -48,8 +48,7 @@ const Login: React.FC = () => {
               <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
           </div>
-          <h1>Clinical Laboratory Management System</h1>
-          <p>Advanced diagnostic solutions for better patient care</p>
+          <h1>Arunjothi Clinical Laboratory Management System</h1>
         </div>
       </div>
       <div className="login-right">
@@ -86,11 +85,6 @@ const Login: React.FC = () => {
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
-          <div className="login-info">
-            <p><strong>Default Credentials:</strong></p>
-            <p>Admin: admin / admin123</p>
-            <p>Staff: staff / staff123</p>
-          </div>
         </div>
       </div>
     </div>

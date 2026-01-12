@@ -9,7 +9,6 @@ const ReportView: React.FC = () => {
   const navigate = useNavigate();
   const [report, setReport] = useState<Report | null>(null);
   const [reportTests, setReportTests] = useState<ReportTest[]>([]);
-  const [notes, setNotes] = useState('');
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
@@ -24,7 +23,6 @@ const ReportView: React.FC = () => {
       const response = await axios.get(`/api/reports/${id}`);
       setReport(response.data);
       setReportTests(response.data.reportTests || []);
-      setNotes(response.data.notes || '');
     } catch (error) {
       console.error('Error fetching report:', error);
     } finally {
@@ -57,7 +55,6 @@ const ReportView: React.FC = () => {
           unit: rt.unit,
           referenceRange: rt.referenceRange
         })),
-        notes,
         status: 'completed'
       });
       alert('Report saved successfully!');
@@ -94,7 +91,7 @@ const ReportView: React.FC = () => {
 
   return (
     <div className="report-view">
-      <div className="report-actions">
+      <div className="report-actions print-hide">
         <button onClick={() => navigate('/staff/registration')} className="back-btn">
           ← Back to Registration
         </button>
@@ -104,17 +101,13 @@ const ReportView: React.FC = () => {
       </div>
 
       <div className="report-container">
-        <div className="report-header">
-          <h1>LabCare Clinical Laboratory</h1>
-          <p className="lab-tagline">Advanced Diagnostic Solutions for Better Patient Care</p>
-          <p className="lab-contact">
-            Phone: (555) 123-4567 | Email: info@labcare.com | www.labcare.com
-          </p>
+        <div className="report-header print-hide">
+          <h1>Arunjothi Clinical Laboratory</h1>
           <div className="header-divider"></div>
         </div>
 
         <div className="report-info-grid">
-          <div className="info-section">
+          <div className="info-section print-hide">
             <h2>Patient Information</h2>
             <div className="info-item">
               <strong>Name:</strong> {report.patientName}
@@ -130,11 +123,8 @@ const ReportView: React.FC = () => {
             </div>
           </div>
 
-          <div className="info-section">
+          <div className="info-section print-hide">
             <h2>Report Details</h2>
-            <div className="info-item">
-              <strong>Report No:</strong> {report.reportNumber}
-            </div>
             <div className="info-item">
               <strong>Date:</strong> {new Date(report.reportDate).toLocaleDateString('en-US', {
                 year: 'numeric',
@@ -142,14 +132,33 @@ const ReportView: React.FC = () => {
                 day: 'numeric'
               })}
             </div>
-            <div className="info-item">
-              <strong>Total Amount:</strong> <span className="amount">${Number(report.totalAmount).toFixed(2)}</span>
+          </div>
+        </div>
+
+        {/* Print-only patient info - matches scanned report format */}
+        <div className="print-patient-info">
+          <div className="print-patient-grid">
+            <div className="print-info-item">
+              <strong>Pt's Name :</strong> {report.patientName}
+            </div>
+            <div className="print-info-item">
+              <strong>Ref by Dr :</strong> {report.referredBy}
+            </div>
+            <div className="print-info-item">
+              <strong>Sex :</strong> {report.patientSex === 'Male' ? 'M' : report.patientSex === 'Female' ? 'F' : report.patientSex} / {report.patientAge} yrs
+            </div>
+            <div className="print-info-item">
+              <strong>Date :</strong> {new Date(report.reportDate).toLocaleDateString('en-GB', {
+                day: '2-digit',
+                month: '2-digit',
+                year: '2-digit'
+              }).replace(/\//g, '.')}
             </div>
           </div>
         </div>
 
         <div className="test-results-section">
-          <h2>Laboratory Test Results</h2>
+          <h2 className="print-hide">Laboratory Test Results</h2>
           <table className="results-table">
             <thead>
               <tr>
@@ -201,29 +210,14 @@ const ReportView: React.FC = () => {
           </table>
         </div>
 
-        <div className="notes-section">
-          <h2>Notes:</h2>
-          <textarea
-            value={notes}
-            onChange={(e) => setNotes(e.target.value)}
-            placeholder="Add any additional notes or observations here..."
-            className="notes-textarea"
-            rows={4}
-          />
-        </div>
-
-        <div className="signatures-section">
-          <div className="signature-box">
+        <div className="signatures-section print-hide">
+          <div className="signature-box signature-right">
             <div className="signature-line"></div>
             <p>Lab Technician</p>
           </div>
-          <div className="signature-box">
-            <div className="signature-line"></div>
-            <p>Authorized Signatory</p>
-          </div>
         </div>
 
-        <div className="report-footer">
+        <div className="report-footer print-hide">
           <p>This report is electronically generated and is valid without signature.</p>
           <p>For any queries, please contact us at info@labcare.com or call (555) 123-4567</p>
         </div>

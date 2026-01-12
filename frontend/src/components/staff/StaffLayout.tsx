@@ -20,12 +20,11 @@ const StaffLayout: React.FC<StaffLayoutProps> = ({ children }) => {
     <div className="staff-layout">
       <header className="staff-header">
         <div className="header-left">
-          <div className="logo">LabCare - Staff Portal</div>
+          <div className="logo">Arunjothi Clinical Lab - Staff</div>
         </div>
         <div className="header-right">
           <div className="user-info">
             <div className="user-name">{user?.username || 'Staff User'}</div>
-            <div className="user-email">{user?.email || 'staff@labcare.com'}</div>
           </div>
           <button onClick={handleLogout} className="logout-button">
             → Logout

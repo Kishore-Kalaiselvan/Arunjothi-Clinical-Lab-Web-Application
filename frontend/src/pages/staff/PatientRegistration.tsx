@@ -176,7 +176,7 @@ const PatientRegistration: React.FC = () => {
                           onChange={() => handleTestToggle(test.id)}
                         />
                         <span className="test-name">{test.name}</span>
-                        <span className="test-price">${Number(test.price).toFixed(2)}</span>
+                        <span className="test-price">₹{Number(test.price).toFixed(2)}</span>
                       </label>
                     ))}
                   </div>
@@ -196,7 +196,7 @@ const PatientRegistration: React.FC = () => {
                   {selectedTestsData.map((test) => (
                     <div key={test.id} className="test-summary-item">
                       <span>{test.name}</span>
-                      <span>${Number(test.price).toFixed(2)}</span>
+                      <span>₹{Number(test.price).toFixed(2)}</span>
                     </div>
                   ))}
                 </div>
@@ -206,7 +206,7 @@ const PatientRegistration: React.FC = () => {
             </div>
             <div className="total-amount">
               <span>Total Amount:</span>
-              <span className="amount-value">${totalAmount.toFixed(2)}</span>
+              <span className="amount-value">₹{totalAmount.toFixed(2)}</span>
             </div>
           </div>
 

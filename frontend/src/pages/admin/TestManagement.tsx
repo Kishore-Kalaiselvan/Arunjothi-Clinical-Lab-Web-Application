@@ -128,7 +128,7 @@ const TestManagement: React.FC = () => {
               <tr key={test.id}>
                 <td>{test.name}</td>
                 <td>{test.category}</td>
-                <td>${Number(test.price).toFixed(2)}</td>
+                <td>₹{Number(test.price).toFixed(2)}</td>
                 <td>{test.createdAt ? new Date(test.createdAt).toISOString().split('T')[0] : '-'}</td>
                 <td>
                   <button
@@ -182,7 +182,7 @@ const TestManagement: React.FC = () => {
                 </select>
               </div>
               <div className="form-group">
-                <label>Price ($) *</label>
+                <label>Price (₹) *</label>
                 <input
                   type="number"
                   step="0.01"

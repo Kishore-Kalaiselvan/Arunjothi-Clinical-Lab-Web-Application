@@ -66,11 +66,11 @@ router.post('/init', async (req: Request, res: Response) => {
       return res.status(400).json({ error: 'System already initialized' });
     }
 
-    const adminPassword = await bcrypt.hash('admin123', 10);
+    const adminPassword = await bcrypt.hash('Arunachalam!', 10);
     const staffPassword = await bcrypt.hash('staff123', 10);
 
     const admin = await User.create({
-      username: 'admin',
+      username: 'Kalaiselvan',
       email: 'admin@labcare.com',
       password: adminPassword,
       role: UserRole.ADMIN

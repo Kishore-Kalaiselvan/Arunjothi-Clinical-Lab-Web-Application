@@ -71,7 +71,7 @@ const RevenueAnalytics: React.FC = () => {
           <div className="card-icon">📅</div>
           <div className="card-content">
             <h3>Daily Revenue</h3>
-            <div className="card-amount">${revenue?.daily.revenue.toLocaleString() || '0'}</div>
+            <div className="card-amount">₹{revenue?.daily.revenue.toLocaleString() || '0'}</div>
             <div className="card-date">Today ({new Date().toLocaleDateString()})</div>
             <div className={`card-change ${revenue?.daily.change && revenue.daily.change >= 0 ? 'positive' : 'negative'}`}>
               {revenue?.daily.change && revenue.daily.change >= 0 ? '↑' : '↓'} {revenue?.daily.change ? Math.abs(revenue.daily.change).toFixed(1) : '0'}% from yesterday
@@ -83,7 +83,7 @@ const RevenueAnalytics: React.FC = () => {
           <div className="card-icon">📊</div>
           <div className="card-content">
             <h3>Weekly Revenue</h3>
-            <div className="card-amount">${revenue?.weekly.revenue.toLocaleString() || '0'}</div>
+            <div className="card-amount">₹{revenue?.weekly.revenue.toLocaleString() || '0'}</div>
             <div className="card-date">This Week (Week {Math.ceil((new Date().getTime() - new Date(new Date().getFullYear(), 0, 1).getTime()) / (7 * 24 * 60 * 60 * 1000))})</div>
             <div className={`card-change ${revenue?.weekly.change && revenue.weekly.change >= 0 ? 'positive' : 'negative'}`}>
               {revenue?.weekly.change && revenue.weekly.change >= 0 ? '↑' : '↓'} {revenue?.weekly.change ? Math.abs(revenue.weekly.change).toFixed(1) : '0'}% from last week
@@ -95,7 +95,7 @@ const RevenueAnalytics: React.FC = () => {
           <div className="card-icon">💰</div>
           <div className="card-content">
             <h3>Monthly Revenue</h3>
-            <div className="card-amount">${revenue?.monthly.revenue.toLocaleString() || '0'}</div>
+            <div className="card-amount">₹{revenue?.monthly.revenue.toLocaleString() || '0'}</div>
             <div className="card-date">This Month ({new Date().toLocaleString('default', { month: 'long', year: 'numeric' })})</div>
             <div className={`card-change ${revenue?.monthly.change && revenue.monthly.change >= 0 ? 'positive' : 'negative'}`}>
               {revenue?.monthly.change && revenue.monthly.change >= 0 ? '↑' : '↓'} {revenue?.monthly.change ? Math.abs(revenue.monthly.change).toFixed(1) : '0'}% from last month
@@ -137,7 +137,7 @@ const RevenueAnalytics: React.FC = () => {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
               <YAxis />
-              <Tooltip formatter={(value: number) => `$${value.toLocaleString()}`} />
+              <Tooltip formatter={(value: number) => `₹${value.toLocaleString()}`} />
               <Legend />
               <Line
                 type="monotone"
@@ -145,7 +145,7 @@ const RevenueAnalytics: React.FC = () => {
                 stroke="#667eea"
                 strokeWidth={2}
                 dot={{ r: 4 }}
-                name="Revenue ($)"
+                name="Revenue (₹)"
               />
             </LineChart>
           </ResponsiveContainer>

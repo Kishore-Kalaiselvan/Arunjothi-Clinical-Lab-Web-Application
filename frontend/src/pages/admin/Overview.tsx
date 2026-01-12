@@ -56,7 +56,7 @@ const Overview: React.FC = () => {
                   <div className="test-name">{test.name}</div>
                   <div className="test-category">{test.category}</div>
                 </div>
-                <div className="test-price">${Number(test.price).toFixed(2)}</div>
+                <div className="test-price">₹{Number(test.price).toFixed(2)}</div>
               </div>
             ))}
           </div>
@@ -68,7 +68,7 @@ const Overview: React.FC = () => {
           {revenue && (
             <>
               <div className="revenue-today">
-                <div className="revenue-amount">${revenue.daily.revenue.toLocaleString()}</div>
+                <div className="revenue-amount">₹{revenue.daily.revenue.toLocaleString()}</div>
                 <div className={`revenue-change ${revenue.daily.change >= 0 ? 'positive' : 'negative'}`}>
                   {revenue.daily.change >= 0 ? '↑' : '↓'} {Math.abs(revenue.daily.change).toFixed(1)}% from yesterday
                 </div>
@@ -76,11 +76,11 @@ const Overview: React.FC = () => {
               <div className="revenue-periods">
                 <div className="period-item">
                   <span>This Week</span>
-                  <span className="period-amount">${(revenue.weekly.revenue / 1000).toFixed(1)}k</span>
+                  <span className="period-amount">₹{(revenue.weekly.revenue / 1000).toFixed(1)}k</span>
                 </div>
                 <div className="period-item">
                   <span>This Month</span>
-                  <span className="period-amount">${(revenue.monthly.revenue / 1000).toFixed(1)}k</span>
+                  <span className="period-amount">₹{(revenue.monthly.revenue / 1000).toFixed(1)}k</span>
                 </div>
               </div>
             </>

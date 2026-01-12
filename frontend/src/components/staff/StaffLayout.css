@@ -66,3 +66,15 @@
   margin: 0 auto;
   padding: 2rem;
 }
+
+/* Hide header when printing */
+@media print {
+  .staff-header {
+    display: none !important;
+  }
+
+  .staff-main {
+    padding: 0;
+    margin: 0;
+  }
+}
